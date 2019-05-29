@@ -1,0 +1,3 @@
+#		17
+#docker ps -a list all containers and docker container ls list all running containers
+docker container ls
