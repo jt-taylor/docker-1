@@ -1,0 +1,2 @@
+#		33
+docker rmi $(docker images --format "{{.ID}}")
