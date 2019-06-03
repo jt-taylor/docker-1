@@ -1,7 +1,7 @@
 FROM debian:latest
 RUN apt-get update -y && apt-get upgrade -y && \
 	apt-get install -y wget && \
-	apt-get install -y curl openssh-server ca-certificates postfix
+	apt-get install -qq  curl openssh-server ca-certificates postfix
 
 WORKDIR /
 RUN wget https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh
@@ -17,4 +17,4 @@ ENTRYPOINT (/opt/gitlab/embedded/bin/runsvdir-start &) && gitlab-ctl reconfigure
 # so for some reason the gitlab doesn't have a defualt password so when you get
 #	onto the web client it just gives you errrors when you try to add/reset the password
 #	we can fix this by adding (--env / -e) GITLAB_ROOT_PASSWORD='password here'
-#docker run --privileged -e GITLAB_ROOT_PASSWORD=root --restart=unless-stopped -it -p 8022:22 -p 8080:80 -p 8433:433 --name gitlab1 ex03:latest
+#docker run --privileged -e GITLAB_ROOT_PASSWORD=Root_Root1 --restart=unless-stopped -it -p 8022:22 -p 8080:80 -p 8433:433 --name gitlab1 ex03:latest
